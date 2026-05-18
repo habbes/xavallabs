@@ -267,6 +267,12 @@
       max-width: 78ch;
     }
 
+    .section-lead a {
+      color: var(--tertiary);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(12, minmax(0, 1fr));
@@ -525,13 +531,13 @@
   </style>
 </head>
 <body>
-  <header class="topbar" aria-label="Primary navigation">
+  <header class="topbar" aria-label="Site header">
     <div class="topbar-inner">
       <span class="mark" aria-hidden="true"></span>
       <a class="brand" href="#research"><span>XAVAL</span><span>LABS</span></a>
-      <nav class="nav">
+      <nav class="nav" aria-label="Primary navigation">
         <a href="#research" aria-current="location">Research</a>
-        <a href="#okapi">Okapi</a>
+        <a href="#okapi-card">Okapi</a>
         <a href="#labs">Labs</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -540,7 +546,7 @@
   </header>
 
   <main class="page">
-    <section class="hero" id="research" aria-label="Hero">
+    <section class="hero" id="research" aria-label="Company overview">
       <h1>.xaval labs.</h1>
       <p>Applied research for beautiful, practical tools in deep tech, AI, and robotics.</p>
       <div class="hero-actions">
@@ -549,11 +555,11 @@
       </div>
     </section>
 
-    <section class="section" id="okapi" aria-label="Research areas">
+    <section class="section" id="labs" aria-label="Research areas">
       <h2>Current work streams</h2>
       <p class="section-lead">Axiom Research is focused on transparent AI systems that preserve creative control and run in practical production environments.</p>
       <div class="grid">
-        <article class="card">
+        <article class="card" id="okapi-card">
           <span class="chip live">Live track</span>
           <h3>Okapi animation intelligence</h3>
           <ul class="list">
@@ -636,6 +642,12 @@
         <button type="submit">Submit waitlist request</button>
         <p id="waitlist-status" role="status" aria-live="polite"></p>
       </form>
+    </section>
+
+    <section class="section waitlist" id="contact" aria-label="Contact">
+      <span class="chip">Contact</span>
+      <h2>Contact xaval labs</h2>
+      <p class="section-lead">For research collaborations, early access discussions, or partner inquiries, email <a href="mailto:hello@xavallabs.com">hello@xavallabs.com</a>.</p>
     </section>
   </main>
 
