@@ -183,8 +183,9 @@
     </section>
 
     <section class="okapi" id="waitlist" aria-label="okapi waitlist">
-      <h2>Join the okapi waitlist</h2>
+      <h2>Join the Okapi waitlist</h2>
       <p>Okapi is not yet available. Leave your details and we will share early updates, demos, and access opportunities.</p>
+      <p><small>This waitlist form is currently a landing-page preview and does not transmit data yet.</small></p>
       <form id="waitlist-form">
         <label>
           Full name
@@ -209,7 +210,7 @@
     const status = document.getElementById("waitlist-status");
     form.addEventListener("submit", (event) => {
       event.preventDefault();
-      status.textContent = "Thanks — you're on the list. We'll be in touch.";
+      status.textContent = "Thanks for your interest — this preview form is not collecting submissions yet.";
       form.reset();
     });
   </script>
