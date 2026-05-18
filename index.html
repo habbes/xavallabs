@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>xaval labs — applied research in AI and robotics</title>
+  <meta name="description" content="xaval labs is a research lab startup building applied deep tech, AI, and robotics products. Current focus: Okapi, AI-assisted 2D animation software.">
+  <style>
+    :root {
+      --bg: #f4eee2;
+      --paper: #fffaf2;
+      --ink: #1f1a17;
+      --muted: #5b5048;
+      --accent: #be4e2f;
+      --accent-soft: #f2c8b5;
+      --line: #e6d8c7;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Inter", "Avenir Next", "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(circle at top, #f7f0e5, var(--bg) 55%);
+      color: var(--ink);
+      line-height: 1.55;
+    }
+
+    .page {
+      width: min(980px, 92vw);
+      margin: 0 auto;
+      padding: 3rem 0 4rem;
+    }
+
+    .logo {
+      display: inline-block;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: lowercase;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.35rem 0.8rem;
+      background: var(--paper);
+    }
+
+    h1 {
+      margin: 1rem 0 0.6rem;
+      font-size: clamp(2rem, 4.8vw, 3.7rem);
+      line-height: 1.06;
+      letter-spacing: -0.02em;
+      max-width: 18ch;
+    }
+
+    .lead {
+      margin: 0;
+      font-size: clamp(1.05rem, 2vw, 1.3rem);
+      max-width: 62ch;
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      gap: 1.2rem;
+      margin-top: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    }
+
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 1.2rem;
+    }
+
+    h2 {
+      margin: 0 0 0.65rem;
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    ul { margin: 0; padding-left: 1.1rem; }
+    li + li { margin-top: 0.6rem; }
+
+    .okapi {
+      margin-top: 2rem;
+      background: linear-gradient(160deg, var(--paper), #fff2e7);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 1.4rem;
+    }
+
+    form {
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 1rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    label {
+      display: grid;
+      gap: 0.4rem;
+      font-size: 0.95rem;
+    }
+
+    label.full { grid-column: 1 / -1; }
+
+    input, textarea {
+      width: 100%;
+      border: 1px solid #d4c6b5;
+      border-radius: 11px;
+      background: #fff;
+      color: var(--ink);
+      padding: 0.72rem 0.85rem;
+      font: inherit;
+    }
+
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    button {
+      grid-column: 1 / -1;
+      width: fit-content;
+      border: 0;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff;
+      font: inherit;
+      font-weight: 600;
+      padding: 0.75rem 1.1rem;
+      cursor: pointer;
+    }
+
+    button:hover { background: #a84227; }
+
+    #waitlist-status {
+      margin: 0.1rem 0 0;
+      color: #4c3d33;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 640px) {
+      .page { padding-top: 2rem; }
+      form { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <p class="logo">.xaval labs.</p>
+    <h1>Applied research for beautiful, practical tools in deep tech, AI, and robotics.</h1>
+    <p class="lead">
+      xaval labs is a research startup creating innovative products from first-principles research.
+      Our current focus is <strong>Okapi</strong> — an AI-assisted 2D animation software system built for animator flow, speed, and creative freedom.
+    </p>
+
+    <section class="grid" aria-label="research overview">
+      <article class="card">
+        <h2>Current focus: okapi</h2>
+        <p>AI-assisted 2D animation is advancing quickly, but major gaps remain. We are working on the hardest practical problems for professional and independent animators.</p>
+        <ul>
+          <li>Real-time, automatic in-between generation based on animator guides.</li>
+          <li>Models that adapt to an animator's style while they work.</li>
+          <li>Automatic colorization and lighting support.</li>
+          <li>Low-resource, efficient models that run on-device.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h2>Open problems we are tackling</h2>
+        <ul>
+          <li>Existing systems are often slow and need expensive hardware, which breaks real-time workflow on consumer devices.</li>
+          <li>Many modern models depend on huge proprietary datasets.</li>
+          <li>Style generalization remains weak outside represented training styles.</li>
+          <li>Outputs can be unpredictable and limit creative control for animators with clear intent.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h2>Research intent</h2>
+        <p>Our objective is full creative control at the stroke level, immediate feedback that does not interrupt the craft, and tools that help animators move faster without getting in the way.</p>
+      </article>
+    </section>
+
+    <section class="okapi" id="waitlist" aria-label="okapi waitlist">
+      <h2>Join the okapi waitlist</h2>
+      <p>Okapi is not yet available. Leave your details and we will share early updates, demos, and access opportunities.</p>
+      <form id="waitlist-form">
+        <label>
+          Full name
+          <input name="name" type="text" autocomplete="name" required>
+        </label>
+        <label>
+          Email
+          <input name="email" type="email" autocomplete="email" required>
+        </label>
+        <label class="full">
+          What are you animating these days? (optional)
+          <textarea name="notes" placeholder="Short note"></textarea>
+        </label>
+        <button type="submit">Join waitlist</button>
+        <p id="waitlist-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    const form = document.getElementById("waitlist-form");
+    const status = document.getElementById("waitlist-status");
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      status.textContent = "Thanks — you're on the list. We'll be in touch.";
+      form.reset();
+    });
+  </script>
+</body>
+</html>
