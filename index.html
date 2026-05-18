@@ -1,240 +1,305 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>xaval labs — applied research in AI and robotics</title>
-  <meta name="description" content="xaval labs is a research lab startup building applied deep tech, AI, and robotics products. Current focus: Okapi, AI-assisted 2D animation software.">
-  <style>
-    :root {
-      --bg: #edf2f8;
-      --paper: #ffffff;
-      --ink: #142033;
-      --muted: #4f5d78;
-      --accent: #2f5ee5;
-      --accent-soft: #dfe8ff;
-      --line: #d4deef;
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: "Inter", "Avenir Next", "Segoe UI", Roboto, sans-serif;
-      background: linear-gradient(180deg, #f7faff 0%, var(--bg) 45%, #f3f7fc 100%);
-      color: var(--ink);
-      line-height: 1.55;
-    }
-
-    .page {
-      width: min(1020px, 92vw);
-      margin: 0 auto;
-      padding: 3rem 0 4.5rem;
-    }
-
-    .hero {
-      padding: 0 0 2rem;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .logo {
-      display: inline-block;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: lowercase;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 0.35rem 0.8rem;
-      background: var(--accent-soft);
-      color: #2447b6;
-    }
-
-    h1 {
-      margin: 1rem 0 0.6rem;
-      font-size: clamp(2rem, 4.8vw, 3.7rem);
-      line-height: 1.06;
-      letter-spacing: -0.02em;
-      max-width: 18ch;
-    }
-
-    .lead {
-      margin: 0;
-      font-size: clamp(1.05rem, 2vw, 1.3rem);
-      max-width: 62ch;
-      color: var(--muted);
-    }
-
-    .focus {
-      margin: 1rem 0 0;
-      max-width: 66ch;
-      background: linear-gradient(180deg, #edf3ff 0%, var(--accent-soft) 100%);
-      border: 1px solid #c6d6ff;
-      border-radius: 14px;
-      padding: 0.9rem 1rem;
-      color: #24365f;
-    }
-
-    .grid {
-      display: grid;
-      gap: 1.2rem;
-      margin-top: 2.4rem;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-    }
-
-    .card {
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 1.25rem;
-      box-shadow: 0 10px 25px -22px rgba(32, 66, 160, 0.55);
-    }
-
-    h2 {
-      margin: 0 0 0.65rem;
-      font-size: 1.05rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-
-    ul { margin: 0; padding-left: 1.1rem; }
-    li + li { margin-top: 0.6rem; }
-
-    .okapi {
-      margin-top: 3rem;
-      background: linear-gradient(160deg, #ffffff 10%, #f0f5ff 100%);
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 1.5rem;
-      box-shadow: 0 24px 40px -34px rgba(39, 76, 177, 0.65);
-    }
-
-    form {
-      display: grid;
-      gap: 0.7rem;
-      margin-top: 1rem;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    label {
-      display: grid;
-      gap: 0.4rem;
-      font-size: 0.95rem;
-    }
-
-    label.full { grid-column: 1 / -1; }
-
-    input, textarea {
-      width: 100%;
-      border: 1px solid #c6d3ee;
-      border-radius: 11px;
-      background: #fff;
-      color: var(--ink);
-      padding: 0.72rem 0.85rem;
-      font: inherit;
-    }
-
-    textarea {
-      min-height: 100px;
-      resize: vertical;
-    }
-
-    button {
-      grid-column: 1 / -1;
-      width: fit-content;
-      border: 0;
-      border-radius: 999px;
-      background: var(--accent);
-      color: #fff;
-      font: inherit;
-      font-weight: 600;
-      padding: 0.75rem 1.1rem;
-      cursor: pointer;
-    }
-
-    button:hover { background: #2148bc; }
-
-    #waitlist-status {
-      margin: 0.1rem 0 0;
-      color: #4c3d33;
-      font-size: 0.92rem;
-    }
-
-    @media (max-width: 640px) {
-      .page { padding-top: 2rem; }
-      form { grid-template-columns: 1fr; }
-    }
-  </style>
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>XAVAL LABS | Applied Research</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Inter:wght@400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Using Geist-like font via Inter for body if Geist isn't available, but config specifies Geist -->
+<style>
+        body {
+            font-family: 'Inter', sans-serif; /* Fallback for Geist */
+            background-color: #031427;
+            color: #d3e4fe;
+            -webkit-font-smoothing: antialiased;
+        }
+        .font-headline-md { font-family: 'Space Grotesk', sans-serif; }
+        .font-display-lg { font-family: 'Space Grotesk', sans-serif; }
+        .font-label-sm { font-family: 'JetBrains Mono', monospace; }
+        .glass-surface {
+            background: rgba(3, 20, 39, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glass-card {
+            background: rgba(16, 32, 52, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: border-color 0.3s ease;
+        }
+        .glass-card:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at top right, rgba(0, 219, 233, 0.05), transparent 40%),
+                        radial-gradient(circle at bottom left, rgba(255, 255, 255, 0.02), transparent 40%);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#ffffff",
+                        "secondary-fixed": "#e5e1e5",
+                        "on-secondary-fixed": "#1c1b1e",
+                        "on-tertiary": "#00363a",
+                        "inverse-surface": "#d3e4fe",
+                        "outline-variant": "#444748",
+                        "surface-variant": "#26364a",
+                        "on-primary-fixed": "#1a1c1c",
+                        "secondary": "#c8c5c9",
+                        "on-surface": "#d3e4fe",
+                        "secondary-fixed-dim": "#c8c5c9",
+                        "on-secondary": "#313033",
+                        "on-tertiary-container": "#006f77",
+                        "surface": "#031427",
+                        "surface-dim": "#031427",
+                        "secondary-container": "#49494c",
+                        "surface-bright": "#2a3a4f",
+                        "background": "#031427",
+                        "on-secondary-fixed-variant": "#474649",
+                        "on-primary-fixed-variant": "#454747",
+                        "surface-container-lowest": "#000f21",
+                        "on-primary-container": "#636565",
+                        "primary-fixed-dim": "#c6c6c7",
+                        "primary-fixed": "#e2e2e2",
+                        "surface-container": "#102034",
+                        "surface-container-low": "#0b1c30",
+                        "inverse-primary": "#5d5f5f",
+                        "surface-container-high": "#1b2b3f",
+                        "tertiary": "#ffffff",
+                        "tertiary-container": "#7df4ff",
+                        "on-tertiary-fixed-variant": "#004f54",
+                        "on-surface-variant": "#c4c7c8",
+                        "on-background": "#d3e4fe",
+                        "on-primary": "#2f3131",
+                        "on-secondary-container": "#bab7bb",
+                        "outline": "#8e9192",
+                        "surface-container-highest": "#26364a",
+                        "error": "#ffb4ab",
+                        "on-error-container": "#ffdad6",
+                        "primary-container": "#e2e2e2",
+                        "tertiary-fixed": "#7df4ff",
+                        "on-tertiary-fixed": "#002022",
+                        "inverse-on-surface": "#213145",
+                        "error-container": "#93000a",
+                        "surface-tint": "#c6c6c7",
+                        "tertiary-fixed-dim": "#00dbe9",
+                        "on-error": "#690005"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "section-gap": "128px",
+                        "gutter": "32px",
+                        "unit": "8px",
+                        "container-max": "1440px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Space Grotesk"],
+                        "display-lg": ["Space Grotesk"],
+                        "label-sm": ["JetBrains Mono"],
+                        "display-lg-mobile": ["Space Grotesk"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                        "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
 </head>
-<body>
-  <main class="page">
-    <p class="logo">.xaval labs.</p>
-    <section class="hero" aria-label="company overview">
-      <h1>Applied research for beautiful, practical tools in deep tech, AI, and robotics.</h1>
-      <p class="lead">
-        xaval labs is a research startup creating innovative products from first-principles research.
-      </p>
-      <p class="focus">
-        Current product focus: <strong>Okapi</strong> — AI-assisted 2D animation software built for animator flow, speed, and creative control.
-      </p>
-    </section>
+<body class="bg-background text-on-background hero-gradient selection:bg-tertiary-fixed selection:text-on-tertiary-fixed">
+<!-- TopNavBar (Shared Component) -->
+<header class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl border-b border-white/10 h-[80px]">
+<div class="max-w-[1440px] mx-auto px-margin-desktop flex justify-between items-center h-full">
+<div class="flex items-center gap-4">
+<img alt="Xaval Labs Logo" class="h-8 w-auto" src="data:image/png;base64,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">
+<span class="font-headline-md text-headline-md text-primary tracking-tight">XAVAL LABS</span>
+</div>
+<nav class="hidden md:flex items-center gap-10">
+<a class="text-primary border-b border-primary pb-1 font-body-md hover:text-tertiary-fixed transition-colors duration-300 ease-in-out scale-100 active:scale-[0.98] transition-transform" href="#">Research</a>
+<a class="text-on-surface-variant font-body-md hover:text-tertiary-fixed transition-colors duration-300 ease-in-out scale-100 active:scale-[0.98] transition-transform" href="#">Okapi</a>
+<a class="text-on-surface-variant font-body-md hover:text-tertiary-fixed transition-colors duration-300 ease-in-out scale-100 active:scale-[0.98] transition-transform" href="#">Labs</a>
+<a class="text-on-surface-variant font-body-md hover:text-tertiary-fixed transition-colors duration-300 ease-in-out scale-100 active:scale-[0.98] transition-transform" href="#">Contact</a>
+</nav>
+<button class="bg-primary text-on-primary px-6 py-2.5 font-label-sm uppercase tracking-widest hover:bg-secondary-fixed transition-all duration-300 active:scale-95">
+                Join Waitlist
+            </button>
+</div>
+</header>
+<main class="pt-[80px]">
+<!-- Hero Section -->
+<section class="min-h-[90vh] flex flex-col justify-center max-w-[1440px] mx-auto px-margin-desktop py-section-gap">
+<div class="grid grid-cols-1 gap-gutter items-center">
+<div class="space-y-8 text-center mx-auto">
+<h1 class="text-display-lg-mobile md:text-display-lg font-display-lg text-primary">
+                        .xaval labs.
+                    </h1>
+<p class="text-body-lg text-on-surface-variant max-w-xl mx-auto">
+                        Applied research for beautiful, practical tools in deep tech, AI, and robotics.
+                    </p>
+<div class="pt-4 flex gap-4 justify-center">
+<button class="bg-primary text-on-primary px-8 py-4 font-label-sm tracking-widest transition-all duration-300 hover:opacity-90">
+                            VIEW RESEARCH
+                        </button>
+<button class="border border-white/20 bg-white/5 backdrop-blur-sm px-8 py-4 font-label-sm tracking-widest text-primary hover:border-tertiary-fixed transition-all duration-300">
+                            LEARN MORE
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Current Focus Section -->
+<section class="max-w-[1440px] mx-auto px-margin-desktop py-section-gap">
+<div class="border-t border-white/5 pt-gutter mb-gutter">
+<span class="font-label-sm text-tertiary-fixed-dim uppercase tracking-[0.3em]">ACTIVE MISSION</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter">
+<h2 class="text-headline-md font-headline-md text-primary">
+                    Current focus: Okapi
+                </h2>
+<div class="space-y-6">
+<p class="text-body-lg text-on-surface-variant leading-relaxed">
+                        xaval labs is a research startup creating innovative products from first-principles research. Our current focus is <span class="text-primary border-b border-primary/30">Okapi</span> — an AI-assisted 2D animation software system built for animator flow, speed, and creative freedom.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Features Bento Grid -->
+<section class="max-w-[1440px] mx-auto px-margin-desktop py-section-gap">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Feature 1 -->
+<div class="glass-card p-gutter flex flex-col justify-between min-h-[280px]">
+<div class="material-symbols-outlined text-tertiary-fixed text-4xl" style="font-variation-settings: 'FILL' 0;">auto_graph</div>
+<div>
+<h3 class="font-headline-md text-xl text-primary mb-2">In-between generation</h3>
+<p class="text-label-sm text-on-surface-variant">Real-time, automatic frame synthesis between keyframes.</p>
+</div>
+</div>
+<!-- Feature 2 -->
+<div class="glass-card p-gutter flex flex-col justify-between min-h-[280px]">
+<div class="material-symbols-outlined text-tertiary-fixed text-4xl" style="font-variation-settings: 'FILL' 0;">brush</div>
+<div>
+<h3 class="font-headline-md text-xl text-primary mb-2">Style Adaptation</h3>
+<p class="text-label-sm text-on-surface-variant">Models that evolve and adapt to an animator's unique hand-drawn style.</p>
+</div>
+</div>
+<!-- Feature 3 -->
+<div class="glass-card p-gutter flex flex-col justify-between min-h-[280px]">
+<div class="material-symbols-outlined text-tertiary-fixed text-4xl" style="font-variation-settings: 'FILL' 0;">palette</div>
+<div>
+<h3 class="font-headline-md text-xl text-primary mb-2">Color &amp; Lighting</h3>
+<p class="text-label-sm text-on-surface-variant">Automatic colorization and dynamic lighting support for complex scenes.</p>
+</div>
+</div>
+<!-- Feature 4 -->
+<div class="glass-card p-gutter flex flex-col justify-between min-h-[280px]">
+<div class="material-symbols-outlined text-tertiary-fixed text-4xl" style="font-variation-settings: 'FILL' 0;">settings_motion_blur</div>
+<div>
+<h3 class="font-headline-md text-xl text-primary mb-2">Motion Flow Control</h3>
+<p class="text-label-sm text-on-surface-variant">Precise, high-level control over temporal dynamics and fluid character movement.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Research Intent Quote -->
+<section class="max-w-[1440px] mx-auto px-margin-desktop py-section-gap">
+<div class="max-w-4xl mx-auto text-center">
+<div class="inline-block w-12 h-[1px] bg-tertiary-fixed mb-8"></div>
+<blockquote class="text-headline-md font-headline-md italic text-primary leading-tight md:text-5xl">"Our objective is full creative control at the stroke level, making technology invisible so the artist's expression comes to life."</blockquote>
+</div>
+</section>
+<!-- Open Problems Section -->
+<section class="max-w-[1440px] mx-auto px-margin-desktop py-section-gap">
+<div class="border-t border-white/5 pt-gutter grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="md:col-span-1">
+<h2 class="text-headline-md font-headline-md text-primary">Open problems we are tackling</h2>
+</div>
+<div class="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-12">
+<div class="space-y-4">
+<span class="font-label-sm text-tertiary-fixed">01. INFERENCE SPEED</span>
+<p class="text-body-md text-on-surface-variant">Reducing latency for real-time creative interactions without compromising fidelity.</p>
+</div>
+<div class="space-y-4">
+<span class="font-label-sm text-tertiary-fixed">02. DATASET DEPENDENCY</span>
+<p class="text-body-md text-on-surface-variant">Moving beyond fixed, pre-trained datasets toward real-time learning that adapts to an artist's unique style and creativity without retraining.</p>
+</div>
+<div class="space-y-4">
+<span class="font-label-sm text-tertiary-fixed">03. STYLE GENERALIZATION</span>
+<p class="text-body-md text-on-surface-variant">Ensuring models don't homogenize art but celebrate the diversity of human aesthetics.</p>
+</div>
+<div class="space-y-4">
+<span class="font-label-sm text-tertiary-fixed">04. CREATIVE CONTROL</span>
+<p class="text-body-md text-on-surface-variant">Mapping high-level intent to low-level stroke data with surgical precision.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Waitlist CTA Section -->
+<section class="max-w-[1440px] mx-auto px-margin-desktop py-section-gap">
+<div class="glass-card p-12 md:p-16 rounded-xl relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-tertiary-fixed/5 blur-[100px] -translate-y-1/2 translate-x-1/2"></div>
+<div class="max-w-2xl">
+<h2 class="text-headline-md font-headline-md text-primary mb-4">Join the Okapi waitlist</h2>
+<p class="text-body-md text-on-surface-variant mb-12">Be the first to experience the future of 2D animation. We are rolling out access in limited cohorts to ensure high-fidelity support.</p>
+<form class="space-y-10">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+<div class="relative">
+<input class="peer w-full bg-transparent border-0 border-b border-white/20 px-0 py-2 text-primary focus:ring-0 focus:border-tertiary-fixed transition-all placeholder-transparent" id="name" placeholder=" " type="text">
+<label class="absolute left-0 -top-4 text-xs font-label-sm text-on-surface-variant peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-focus:-top-4 peer-focus:text-xs peer-focus:text-tertiary-fixed transition-all" for="name">FULL NAME</label>
+</div>
+<div class="relative">
+<input class="peer w-full bg-transparent border-0 border-b border-white/20 px-0 py-2 text-primary focus:ring-0 focus:border-tertiary-fixed transition-all placeholder-transparent" id="email" placeholder=" " type="email">
+<label class="absolute left-0 -top-4 text-xs font-label-sm text-on-surface-variant peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-focus:-top-4 peer-focus:text-xs peer-focus:text-tertiary-fixed transition-all" for="email">EMAIL ADDRESS</label>
+</div>
+</div>
+<div class="relative">
+<input class="peer w-full bg-transparent border-0 border-b border-white/20 px-0 py-2 text-primary focus:ring-0 focus:border-tertiary-fixed transition-all placeholder-transparent" id="animating" placeholder=" " type="text">
+<label class="absolute left-0 -top-4 text-xs font-label-sm text-on-surface-variant peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-focus:-top-4 peer-focus:text-xs peer-focus:text-tertiary-fixed transition-all" for="animating">WHAT ARE YOU ANIMATING THESE DAYS? (OPTIONAL)</label>
+</div>
+<div class="pt-4 flex flex-col md:flex-row md:items-center gap-8">
+<button class="bg-primary text-on-primary px-10 py-4 font-label-sm tracking-widest hover:bg-secondary-fixed transition-all" type="submit">
+                                REQUEST EARLY ACCESS
+                            </button>
+<p class="text-[10px] font-label-sm text-on-surface-variant leading-tight max-w-xs">
+                                Okapi is currently in closed preview. By joining the waitlist, you agree to receive research updates.
+                            </p>
+</div>
+</form>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="w-full py-section-gap bg-surface border-t border-white/5">
+<div class="max-w-[1440px] mx-auto px-margin-desktop flex flex-col md:flex-row justify-between items-start gap-gutter">
+<div class="space-y-6 max-w-sm">
+<div class="flex items-center gap-3">
+<img alt="Xaval Labs Logo" class="h-6" src="data:image/png;base64,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">
+<span class="font-headline-md text-headline-md text-primary">XAVAL LABS</span>
+</div>
+<p class="text-body-md text-on-surface-variant">© 2026 Xaval Labs. Applied research for the next generation of creative tools.</p>
+</div>
 
-    <section class="grid" aria-label="research overview">
-      <article class="card">
-        <h2>Current focus: Okapi</h2>
-        <p>AI-assisted 2D animation is advancing quickly, but major gaps remain. We are working on the hardest practical problems for professional and independent animators.</p>
-        <ul>
-          <li>Real-time, automatic in-between generation based on animator guides.</li>
-          <li>Models that adapt to an animator's style while they work.</li>
-          <li>Automatic colorization and lighting support.</li>
-          <li>Low-resource, efficient models that run on-device.</li>
-        </ul>
-      </article>
-      <article class="card">
-        <h2>Open problems we are tackling</h2>
-        <ul>
-          <li>Existing systems are often slow and need expensive hardware, which breaks real-time workflow on consumer devices.</li>
-          <li>Many modern models depend on huge proprietary datasets.</li>
-          <li>Style generalization remains weak outside represented training styles.</li>
-          <li>Outputs can be unpredictable and limit creative control for animators with clear intent.</li>
-        </ul>
-      </article>
-      <article class="card">
-        <h2>Research intent</h2>
-        <p>Our objective is full creative control at the stroke level, immediate feedback that does not interrupt the craft, and tools that help animators move faster without getting in the way.</p>
-      </article>
-    </section>
+</div>
+</footer>
 
-    <section class="okapi" id="waitlist" aria-label="okapi waitlist">
-      <h2>Join the Okapi waitlist</h2>
-      <p>Okapi is not yet available. Leave your details and we will share early updates, demos, and access opportunities.</p>
-      <p><small>This waitlist form is currently a landing page preview and does not transmit data yet.</small></p>
-      <form id="waitlist-form">
-        <label>
-          Full name
-          <input name="name" type="text" autocomplete="name" required>
-        </label>
-        <label>
-          Email
-          <input name="email" type="email" autocomplete="email" required>
-        </label>
-        <label class="full">
-          What are you animating these days? (optional)
-          <textarea name="notes" placeholder="Short note"></textarea>
-        </label>
-        <button type="submit">Join waitlist</button>
-        <p id="waitlist-status" role="status" aria-live="polite"></p>
-      </form>
-    </section>
-  </main>
 
-  <script>
-    const form = document.getElementById("waitlist-form");
-    const status = document.getElementById("waitlist-status");
-    form.addEventListener("submit", (event) => {
-      event.preventDefault();
-      status.textContent = "Thanks for your interest — this preview form is not collecting submissions yet.";
-      form.reset();
-    });
-  </script>
-</body>
-</html>
+</body></html>
