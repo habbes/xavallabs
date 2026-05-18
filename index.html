@@ -3,211 +3,598 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>xaval labs — applied research in AI and robotics</title>
-  <meta name="description" content="xaval labs is a research lab startup building applied deep tech, AI, and robotics products. Current focus: Okapi, AI-assisted 2D animation software.">
+  <title>xaval labs — axiom research</title>
+  <meta name="description" content="Axiom Research by xaval labs: applied research in AI and robotics with transparent, practical systems.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=JetBrains+Mono:wght@500&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #edf2f8;
-      --paper: #ffffff;
-      --ink: #142033;
-      --muted: #4f5d78;
-      --accent: #2f5ee5;
-      --accent-soft: #dfe8ff;
-      --line: #d4deef;
+      --surface: #031427;
+      --surface-dim: #031427;
+      --surface-bright: #2a3a4f;
+      --surface-container-lowest: #000f21;
+      --surface-container-low: #0b1c30;
+      --surface-container: #102034;
+      --surface-container-high: #1b2b3f;
+      --surface-container-highest: #26364a;
+      --on-surface: #d3e4fe;
+      --on-surface-variant: #c4c7c8;
+      --outline: #8e9192;
+      --outline-variant: #444748;
+      --primary: #ffffff;
+      --on-primary: #2f3131;
+      --tertiary: #7df4ff;
+      --bg: #031427;
+      --line: rgba(255, 255, 255, 0.12);
+      --line-soft: rgba(255, 255, 255, 0.06);
+      --glass: rgba(11, 28, 48, 0.6);
+      --transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+      --radius-sm: 0.125rem;
+      --radius-base: 0.25rem;
+      --radius-xl: 0.75rem;
+      --gutter: 32px;
+      --margin: 64px;
+      --section-gap: 128px;
+      --container: 1440px;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
+    html,
     body {
       margin: 0;
-      font-family: "Inter", "Avenir Next", "Segoe UI", Roboto, sans-serif;
-      background: linear-gradient(180deg, #f7faff 0%, var(--bg) 45%, #f3f7fc 100%);
-      color: var(--ink);
-      line-height: 1.55;
+      padding: 0;
+      min-height: 100%;
+      background: radial-gradient(65% 80% at 50% 50%, rgba(0, 219, 233, 0.12) 0%, rgba(0, 219, 233, 0.03) 35%, transparent 62%), var(--bg);
+      color: var(--on-surface);
+      font-family: "Geist", "Inter", "Segoe UI", Roboto, sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
     .page {
-      width: min(1020px, 92vw);
+      width: min(var(--container), calc(100% - (var(--margin) * 2)));
       margin: 0 auto;
-      padding: 3rem 0 4.5rem;
+      padding-bottom: 96px;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      backdrop-filter: blur(20px);
+      background: rgba(3, 20, 39, 0.86);
+      border-bottom: 1px solid var(--line-soft);
+    }
+
+    .topbar-inner {
+      width: min(var(--container), calc(100% - (var(--margin) * 2)));
+      margin: 0 auto;
+      min-height: 110px;
+      display: grid;
+      grid-template-columns: auto auto 1fr auto;
+      align-items: center;
+      gap: 44px;
+    }
+
+    .mark {
+      width: 46px;
+      height: 46px;
+      position: relative;
+      opacity: 0.85;
+    }
+
+    .mark::before,
+    .mark::after {
+      content: "";
+      position: absolute;
+      width: 46px;
+      height: 2px;
+      left: 0;
+      top: 22px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+
+    .mark::before { transform: rotate(45deg); }
+    .mark::after { transform: rotate(-45deg); }
+
+    .brand {
+      font-family: "Space Grotesk", "Geist", sans-serif;
+      font-weight: 700;
+      font-size: clamp(32px, 4vw, 58px);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+      color: var(--primary);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 52px;
+      justify-self: center;
+    }
+
+    .nav a {
+      font-size: 48px;
+      font-size: clamp(24px, 2.45vw, 52px);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      color: var(--on-surface-variant);
+      transition: color var(--transition);
+      position: relative;
+      padding-bottom: 8px;
+    }
+
+    .nav a[aria-current="page"] {
+      color: var(--primary);
+    }
+
+    .nav a[aria-current="page"]::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      border-bottom: 2px solid var(--primary);
+    }
+
+    .nav a:hover {
+      color: var(--primary);
+    }
+
+    .btn,
+    button {
+      border-radius: var(--radius-base);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      line-height: 1;
+      text-transform: uppercase;
+      transition: all var(--transition);
+      cursor: pointer;
+      border: 1px solid transparent;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 84px;
+      padding: 24px 62px;
+    }
+
+    .btn-primary,
+    button[type="submit"] {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: var(--on-primary);
+    }
+
+    .btn-primary:hover,
+    button[type="submit"]:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 22px rgba(125, 244, 255, 0.2);
+    }
+
+    .btn-secondary {
+      background: rgba(11, 28, 48, 0.45);
+      border-color: var(--line);
+      color: var(--primary);
+      backdrop-filter: blur(20px);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--tertiary);
+      box-shadow: 0 0 20px rgba(125, 244, 255, 0.24);
+      color: var(--tertiary);
     }
 
     .hero {
-      padding: 0 0 2rem;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .logo {
-      display: inline-block;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: lowercase;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 0.35rem 0.8rem;
-      background: var(--accent-soft);
-      color: #2447b6;
+      min-height: calc(100vh - 170px);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      gap: 42px;
+      padding: 84px 0 96px;
     }
 
     h1 {
-      margin: 1rem 0 0.6rem;
-      font-size: clamp(2rem, 4.8vw, 3.7rem);
-      line-height: 1.06;
-      letter-spacing: -0.02em;
-      max-width: 18ch;
-    }
-
-    .lead {
       margin: 0;
-      font-size: clamp(1.05rem, 2vw, 1.3rem);
-      max-width: 62ch;
-      color: var(--muted);
+      font-family: "Space Grotesk", "Geist", sans-serif;
+      font-size: 72px;
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+      color: var(--primary);
+      text-transform: lowercase;
     }
 
-    .focus {
-      margin: 1rem 0 0;
-      max-width: 66ch;
-      background: linear-gradient(180deg, #edf3ff 0%, var(--accent-soft) 100%);
-      border: 1px solid #c6d6ff;
-      border-radius: 14px;
-      padding: 0.9rem 1rem;
-      color: #24365f;
+    .hero p {
+      margin: 0;
+      width: min(980px, 100%);
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--on-surface-variant);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--gutter);
+    }
+
+    .section {
+      margin-top: var(--section-gap);
+    }
+
+    .section h2 {
+      margin: 0 0 24px;
+      font-family: "Space Grotesk", "Geist", sans-serif;
+      font-size: 32px;
+      line-height: 1.3;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: var(--primary);
+    }
+
+    .section-lead {
+      margin: 0;
+      color: var(--on-surface-variant);
+      font-size: 18px;
+      line-height: 1.6;
+      max-width: 78ch;
     }
 
     .grid {
       display: grid;
-      gap: 1.2rem;
-      margin-top: 2.4rem;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: var(--gutter);
+      margin-top: 40px;
     }
 
     .card {
-      background: var(--paper);
+      grid-column: span 4;
+      background: var(--glass);
       border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 1.25rem;
-      box-shadow: 0 10px 25px -22px rgba(32, 66, 160, 0.55);
+      border-radius: var(--radius-xl);
+      backdrop-filter: blur(20px);
+      padding: 32px;
     }
 
-    h2 {
-      margin: 0 0 0.65rem;
-      font-size: 1.05rem;
+    .card h3 {
+      margin: 0 0 16px;
+      font-family: "Space Grotesk", "Geist", sans-serif;
+      font-weight: 500;
+      font-size: 24px;
+      letter-spacing: -0.01em;
+      color: var(--primary);
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--radius-base);
+      padding: 9px 12px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      line-height: 1;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
+      color: var(--on-surface-variant);
+      margin-bottom: 16px;
     }
 
-    ul { margin: 0; padding-left: 1.1rem; }
-    li + li { margin-top: 0.6rem; }
+    .chip.live::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--tertiary);
+      box-shadow: 0 0 10px rgba(125, 244, 255, 0.8);
+      animation: pulse 1.8s infinite;
+    }
 
-    .okapi {
-      margin-top: 3rem;
-      background: linear-gradient(160deg, #ffffff 10%, #f0f5ff 100%);
+    @keyframes pulse {
+      0% { opacity: 0.35; transform: scale(0.8); }
+      50% { opacity: 1; transform: scale(1); }
+      100% { opacity: 0.35; transform: scale(0.8); }
+    }
+
+    .list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .list li {
+      padding: 14px 0;
+      border-bottom: 0.5px solid var(--line-soft);
+    }
+
+    .list li:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .item-title {
+      display: block;
+      color: var(--on-surface);
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .item-meta {
+      display: block;
+      margin-top: 6px;
+      color: var(--outline);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      line-height: 1;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .waitlist {
+      margin-top: var(--section-gap);
+      background: var(--glass);
       border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 1.5rem;
-      box-shadow: 0 24px 40px -34px rgba(39, 76, 177, 0.65);
+      border-radius: var(--radius-xl);
+      backdrop-filter: blur(20px);
+      padding: 40px;
+      max-width: 920px;
     }
 
     form {
+      margin-top: 22px;
       display: grid;
-      gap: 0.7rem;
-      margin-top: 1rem;
       grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px var(--gutter);
     }
 
     label {
       display: grid;
-      gap: 0.4rem;
-      font-size: 0.95rem;
+      gap: 10px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      line-height: 1;
+      letter-spacing: 0.1em;
+      color: var(--outline);
+      text-transform: uppercase;
     }
 
-    label.full { grid-column: 1 / -1; }
+    label.full,
+    button[type="submit"],
+    #waitlist-status {
+      grid-column: 1 / -1;
+    }
 
-    input, textarea {
-      width: 100%;
-      border: 1px solid #c6d3ee;
-      border-radius: 11px;
-      background: #fff;
-      color: var(--ink);
-      padding: 0.72rem 0.85rem;
-      font: inherit;
+    input,
+    textarea {
+      background: transparent;
+      color: var(--on-surface);
+      border: 0;
+      border-bottom: 1px solid var(--outline-variant);
+      font-family: "Geist", "Inter", sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      padding: 8px 0 10px;
+      outline: none;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #7f8da0;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-bottom-color: var(--tertiary);
+      box-shadow: 0 2px 10px rgba(125, 244, 255, 0.35);
     }
 
     textarea {
-      min-height: 100px;
       resize: vertical;
+      min-height: 96px;
     }
-
-    button {
-      grid-column: 1 / -1;
-      width: fit-content;
-      border: 0;
-      border-radius: 999px;
-      background: var(--accent);
-      color: #fff;
-      font: inherit;
-      font-weight: 600;
-      padding: 0.75rem 1.1rem;
-      cursor: pointer;
-    }
-
-    button:hover { background: #2148bc; }
 
     #waitlist-status {
-      margin: 0.1rem 0 0;
-      color: #4c3d33;
-      font-size: 0.92rem;
+      margin: 0;
+      min-height: 1.5em;
+      color: var(--on-surface-variant);
+      font-size: 16px;
+      line-height: 1.5;
+      font-family: "Geist", "Inter", sans-serif;
     }
 
-    @media (max-width: 640px) {
-      .page { padding-top: 2rem; }
-      form { grid-template-columns: 1fr; }
+    @media (max-width: 1200px) {
+      .topbar-inner {
+        grid-template-columns: auto 1fr auto;
+        gap: 28px;
+      }
+
+      .brand {
+        font-size: clamp(28px, 3.6vw, 44px);
+      }
+
+      .nav {
+        grid-column: 1 / -1;
+        justify-self: start;
+        margin-top: -8px;
+        gap: 28px;
+      }
+
+      .nav a {
+        font-size: clamp(22px, 2.2vw, 34px);
+      }
+
+      .hero {
+        min-height: calc(100vh - 210px);
+      }
+
+      .card {
+        grid-column: span 6;
+      }
+    }
+
+    @media (max-width: 900px) {
+      :root {
+        --margin: 24px;
+      }
+
+      h1 {
+        font-size: 40px;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+      }
+
+      .hero {
+        padding-top: 72px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .btn,
+      button {
+        width: 100%;
+        min-height: 72px;
+      }
+
+      .hero-actions {
+        width: min(760px, 100%);
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .card {
+        grid-column: 1 / -1;
+      }
+
+      form {
+        grid-template-columns: 1fr;
+      }
+
+      label.full,
+      button[type="submit"],
+      #waitlist-status {
+        grid-column: auto;
+      }
+
+      .waitlist {
+        padding: 28px 24px;
+      }
     }
   </style>
 </head>
 <body>
+  <header class="topbar" aria-label="Primary navigation">
+    <div class="topbar-inner">
+      <span class="mark" aria-hidden="true"></span>
+      <a class="brand" href="#">XAVAL<br>LABS</a>
+      <nav class="nav">
+        <a href="#research" aria-current="page">Research</a>
+        <a href="#okapi">Okapi</a>
+        <a href="#labs">Labs</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="btn btn-primary" href="#waitlist">Join waitlist</a>
+    </div>
+  </header>
+
   <main class="page">
-    <p class="logo">.xaval labs.</p>
-    <section class="hero" aria-label="company overview">
-      <h1>Applied research for beautiful, practical tools in deep tech, AI, and robotics.</h1>
-      <p class="lead">
-        xaval labs is a research startup creating innovative products from first-principles research.
-      </p>
-      <p class="focus">
-        Current product focus: <strong>Okapi</strong> — AI-assisted 2D animation software built for animator flow, speed, and creative control.
-      </p>
+    <section class="hero" id="research" aria-label="Hero">
+      <h1>.xaval labs.</h1>
+      <p>Applied research for beautiful, practical tools in deep tech, AI, and robotics.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#okapi">View research</a>
+        <a class="btn btn-secondary" href="#labs">Learn more</a>
+      </div>
     </section>
 
-    <section class="grid" aria-label="research overview">
-      <article class="card">
-        <h2>Current focus: Okapi</h2>
-        <p>AI-assisted 2D animation is advancing quickly, but major gaps remain. We are working on the hardest practical problems for professional and independent animators.</p>
-        <ul>
-          <li>Real-time, automatic in-between generation based on animator guides.</li>
-          <li>Models that adapt to an animator's style while they work.</li>
-          <li>Automatic colorization and lighting support.</li>
-          <li>Low-resource, efficient models that run on-device.</li>
-        </ul>
-      </article>
-      <article class="card">
-        <h2>Open problems we are tackling</h2>
-        <ul>
-          <li>Existing systems are often slow and need expensive hardware, which breaks real-time workflow on consumer devices.</li>
-          <li>Many modern models depend on huge proprietary datasets.</li>
-          <li>Style generalization remains weak outside represented training styles.</li>
-          <li>Outputs can be unpredictable and limit creative control for animators with clear intent.</li>
-        </ul>
-      </article>
-      <article class="card">
-        <h2>Research intent</h2>
-        <p>Our objective is full creative control at the stroke level, immediate feedback that does not interrupt the craft, and tools that help animators move faster without getting in the way.</p>
-      </article>
+    <section class="section" id="okapi" aria-label="Research areas">
+      <h2>Current work streams</h2>
+      <p class="section-lead">Axiom Research is focused on transparent AI systems that preserve creative control and run in practical production environments.</p>
+      <div class="grid">
+        <article class="card">
+          <span class="chip live">Live track</span>
+          <h3>Okapi animation intelligence</h3>
+          <ul class="list">
+            <li>
+              <span class="item-title">Real-time in-between generation from animator guides</span>
+              <span class="item-meta">Human-in-the-loop systems</span>
+            </li>
+            <li>
+              <span class="item-title">Style-adaptive models that learn while artists work</span>
+              <span class="item-meta">On-device personalization</span>
+            </li>
+            <li>
+              <span class="item-title">Automatic color and lighting support for 2D pipelines</span>
+              <span class="item-meta">Production acceleration</span>
+            </li>
+          </ul>
+        </article>
+
+        <article class="card" id="labs">
+          <span class="chip">Open problems</span>
+          <h3>What we are solving</h3>
+          <ul class="list">
+            <li>
+              <span class="item-title">Current systems demand expensive hardware and break real-time flow.</span>
+              <span class="item-meta">Efficiency first</span>
+            </li>
+            <li>
+              <span class="item-title">Large proprietary datasets limit reproducibility and accessibility.</span>
+              <span class="item-meta">Transparent methods</span>
+            </li>
+            <li>
+              <span class="item-title">Style generalization fails on underrepresented animation languages.</span>
+              <span class="item-meta">Robust adaptation</span>
+            </li>
+            <li>
+              <span class="item-title">Model outputs often override intent instead of respecting craft.</span>
+              <span class="item-meta">Artist sovereignty</span>
+            </li>
+          </ul>
+        </article>
+
+        <article class="card" id="contact">
+          <span class="chip">Research intent</span>
+          <h3>Academic rigor, practical delivery</h3>
+          <ul class="list">
+            <li>
+              <span class="item-title">Design interfaces that make AI behavior visible, debuggable, and steerable.</span>
+              <span class="item-meta">Glass-box philosophy</span>
+            </li>
+            <li>
+              <span class="item-title">Pair first-principles modeling with measurable real-world production value.</span>
+              <span class="item-meta">Applied research</span>
+            </li>
+            <li>
+              <span class="item-title">Build lightweight systems that ship broadly, not only in lab conditions.</span>
+              <span class="item-meta">Deployment realism</span>
+            </li>
+          </ul>
+        </article>
+      </div>
     </section>
 
-    <section class="okapi" id="waitlist" aria-label="okapi waitlist">
+    <section class="waitlist" id="waitlist" aria-label="Join waitlist">
+      <span class="chip live">Active updates</span>
       <h2>Join the Okapi waitlist</h2>
-      <p>Okapi is not yet available. Leave your details and we will share early updates, demos, and access opportunities.</p>
-      <p><small>This waitlist form is currently a landing page preview and does not transmit data yet.</small></p>
+      <p class="section-lead">Receive early demos, research notes, and controlled access opportunities as new milestones move from prototype to product.</p>
       <form id="waitlist-form">
         <label>
           Full name
@@ -218,10 +605,10 @@
           <input name="email" type="email" autocomplete="email" required>
         </label>
         <label class="full">
-          What are you animating these days? (optional)
-          <textarea name="notes" placeholder="Short note"></textarea>
+          Current workflow (optional)
+          <textarea name="notes" placeholder="Tell us what you are building."></textarea>
         </label>
-        <button type="submit">Join waitlist</button>
+        <button type="submit">Submit waitlist request</button>
         <p id="waitlist-status" role="status" aria-live="polite"></p>
       </form>
     </section>
@@ -230,6 +617,7 @@
   <script>
     const form = document.getElementById("waitlist-form");
     const status = document.getElementById("waitlist-status");
+
     form.addEventListener("submit", (event) => {
       event.preventDefault();
       status.textContent = "Thanks for your interest — this preview form is not collecting submissions yet.";
