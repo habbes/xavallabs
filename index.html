@@ -150,11 +150,11 @@
       padding-bottom: 8px;
     }
 
-    .nav a[aria-current="location"] {
+    .nav a.is-active {
       color: var(--primary);
     }
 
-    .nav a[aria-current="location"]::after {
+    .nav a.is-active::after {
       content: "";
       position: absolute;
       left: 0;
@@ -527,6 +527,12 @@
         opacity: 1;
         transform: none;
       }
+
+      .btn-primary:hover,
+      button[type="submit"]:hover {
+        transform: none;
+        box-shadow: none;
+      }
     }
   </style>
 </head>
@@ -536,7 +542,7 @@
       <span class="mark" aria-hidden="true"></span>
       <a class="brand" href="#top"><span>XAVAL</span><span>LABS</span></a>
       <nav class="nav" aria-label="Primary navigation">
-        <a href="#research" aria-current="location">Research</a>
+        <a href="#research" class="is-active">Research</a>
         <a href="#okapi-card">Okapi</a>
         <a href="#labs">Labs</a>
         <a href="#contact">Contact</a>
