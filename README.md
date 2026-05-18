@@ -18,7 +18,8 @@ Once enabled, each merge to that branch triggers a new Pages deployment automati
   - Open `index.html` directly in a browser, or
   - Run: `python3 -m http.server 8000` from the repo root and visit `http://localhost:8000`
 - **GitHub Pages preview path (after deploy)**:
-  - `https://habbes.github.io/xavallabs/`
+  - `https://<owner>.github.io/<repo>/`
+  - Example for this repository: `https://habbes.github.io/xavallabs/`
 
 ## Screenshot
 
