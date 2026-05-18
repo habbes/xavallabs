@@ -7,13 +7,13 @@
   <meta name="description" content="xaval labs is a research lab startup building applied deep tech, AI, and robotics products. Current focus: Okapi, AI-assisted 2D animation software.">
   <style>
     :root {
-      --bg: #f4eee2;
-      --paper: #fffaf2;
-      --ink: #1f1a17;
-      --muted: #5b5048;
-      --accent: #be4e2f;
-      --accent-soft: #f2c8b5;
-      --line: #e6d8c7;
+      --bg: #edf2f8;
+      --paper: #ffffff;
+      --ink: #142033;
+      --muted: #4f5d78;
+      --accent: #2f5ee5;
+      --accent-soft: #dfe8ff;
+      --line: #d4deef;
     }
 
     * { box-sizing: border-box; }
@@ -21,15 +21,20 @@
     body {
       margin: 0;
       font-family: "Inter", "Avenir Next", "Segoe UI", Roboto, sans-serif;
-      background: radial-gradient(circle at top, #f7f0e5, var(--bg) 55%);
+      background: linear-gradient(180deg, #f7faff 0%, var(--bg) 45%, #f3f7fc 100%);
       color: var(--ink);
       line-height: 1.55;
     }
 
     .page {
-      width: min(980px, 92vw);
+      width: min(1020px, 92vw);
       margin: 0 auto;
-      padding: 3rem 0 4rem;
+      padding: 3rem 0 4.5rem;
+    }
+
+    .hero {
+      padding: 0 0 2rem;
+      border-bottom: 1px solid var(--line);
     }
 
     .logo {
@@ -40,7 +45,8 @@
       border: 1px solid var(--line);
       border-radius: 999px;
       padding: 0.35rem 0.8rem;
-      background: var(--paper);
+      background: var(--accent-soft);
+      color: #2447b6;
     }
 
     h1 {
@@ -58,18 +64,29 @@
       color: var(--muted);
     }
 
+    .focus {
+      margin: 1rem 0 0;
+      max-width: 66ch;
+      background: linear-gradient(180deg, #edf3ff 0%, var(--accent-soft) 100%);
+      border: 1px solid #c6d6ff;
+      border-radius: 14px;
+      padding: 0.9rem 1rem;
+      color: #24365f;
+    }
+
     .grid {
       display: grid;
       gap: 1.2rem;
-      margin-top: 2rem;
+      margin-top: 2.4rem;
       grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
     }
 
     .card {
       background: var(--paper);
       border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 1.2rem;
+      border-radius: 20px;
+      padding: 1.25rem;
+      box-shadow: 0 10px 25px -22px rgba(32, 66, 160, 0.55);
     }
 
     h2 {
@@ -83,11 +100,12 @@
     li + li { margin-top: 0.6rem; }
 
     .okapi {
-      margin-top: 2rem;
-      background: linear-gradient(160deg, var(--paper), #fff2e7);
+      margin-top: 3rem;
+      background: linear-gradient(160deg, #ffffff 10%, #f0f5ff 100%);
       border: 1px solid var(--line);
-      border-radius: 22px;
-      padding: 1.4rem;
+      border-radius: 24px;
+      padding: 1.5rem;
+      box-shadow: 0 24px 40px -34px rgba(39, 76, 177, 0.65);
     }
 
     form {
@@ -107,7 +125,7 @@
 
     input, textarea {
       width: 100%;
-      border: 1px solid #d4c6b5;
+      border: 1px solid #c6d3ee;
       border-radius: 11px;
       background: #fff;
       color: var(--ink);
@@ -133,7 +151,7 @@
       cursor: pointer;
     }
 
-    button:hover { background: #a84227; }
+    button:hover { background: #2148bc; }
 
     #waitlist-status {
       margin: 0.1rem 0 0;
@@ -150,11 +168,15 @@
 <body>
   <main class="page">
     <p class="logo">.xaval labs.</p>
-    <h1>Applied research for beautiful, practical tools in deep tech, AI, and robotics.</h1>
-    <p class="lead">
-      xaval labs is a research startup creating innovative products from first-principles research.
-      Our current focus is <strong>Okapi</strong> — an AI-assisted 2D animation software system built for animator flow, speed, and creative freedom.
-    </p>
+    <section class="hero" aria-label="company overview">
+      <h1>Applied research for beautiful, practical tools in deep tech, AI, and robotics.</h1>
+      <p class="lead">
+        xaval labs is a research startup creating innovative products from first-principles research.
+      </p>
+      <p class="focus">
+        Current product focus: <strong>Okapi</strong> — AI-assisted 2D animation software built for animator flow, speed, and creative control.
+      </p>
+    </section>
 
     <section class="grid" aria-label="research overview">
       <article class="card">
